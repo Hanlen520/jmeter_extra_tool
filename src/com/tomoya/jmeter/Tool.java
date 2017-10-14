@@ -210,11 +210,14 @@ public class Tool {
 		writeFile(str, filePath);
 
 	}
-	
+
 	/**
 	 * 将Jmeter的JDBC Result中指定多列，转换成多列多行的字符串
-	 * @param list JDBC返回的ArrayList集
-	 * @param keyArray JDBC返回的字段名数组
+	 * 
+	 * @param list
+	 *            JDBC返回的ArrayList集
+	 * @param keyArray
+	 *            JDBC返回的字段名数组
 	 * @return 多列多行的字符串
 	 */
 	public static String JDBCResultToString(ArrayList list, String[] keyArray) {
@@ -246,7 +249,7 @@ public class Tool {
 		return DBResultToStr;
 
 	}
-	
+
 	/**
 	 * 将Jmeter的JDBC Result中指定多列，写入文件
 	 * 
