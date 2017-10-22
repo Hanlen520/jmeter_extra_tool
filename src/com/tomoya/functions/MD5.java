@@ -39,18 +39,13 @@ public class MD5 extends AbstractFunction {
 	/** 函数接收值 */
 	private Object[] values;
 	
-	/** 接收参数1 */
-	private String str;
-	/** 函数运算过程 */
-	private String MD5;
-	
 	/**
 	 * 函数算法
 	 * @return 函数运算结果
 	 */
 	private String run() {
-		str = new String(((CompoundVariable) values[0]).execute().trim());
-		MD5 = Tool.getMD5(str);
+		String str = new String(((CompoundVariable) values[0]).execute().trim());
+		String MD5 = Tool.getMD5(str);
 		return String.valueOf(MD5);
 	} 
 	

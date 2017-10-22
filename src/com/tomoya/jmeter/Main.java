@@ -38,11 +38,11 @@ public class Main {
 		System.out.println(aaa);
 		System.out.println(bbb);
 		System.out.println(ccc);
-		Tool.JDBCResultWriteFile(aaa, "id", "C:\\Users\\chen\\Desktop\\debug1.txt");
+		Tool.JDBCResultWriteFile(aaa, "id", "C:\\Users\\FCD\\Desktop\\111.debug1.txt");
 		String[] array =  {"id", "name"};
 		String sad = Tool.JDBCResultToString(aaa, array);
 		System.out.println(sad);
-		Tool.JDBCResultWriteFile(aaa, array, "C:\\Users\\chen\\Desktop\\debug2.txt");
+		Tool.JDBCResultWriteFile(aaa, array, "C:\\Users\\FCD\\Desktop\\111.debug2.txt");
 		System.out.println("Git Done");
 
 	}

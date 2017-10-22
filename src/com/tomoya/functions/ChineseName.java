@@ -32,15 +32,12 @@ public class ChineseName extends AbstractFunction {
 	/** 传入参数的最大数量 */
 	private static final int MAX_PARA_COUNT = 0;
 	
-	/** 函数运算过程 */
-	private String ChineseName;
-	
 	/**
 	 * 函数算法
 	 * @return 函数运算结果
 	 */
 	private String run() {
-		ChineseName = Tool.getChineseName();
+		String ChineseName = Tool.getChineseName();
 		return String.valueOf(ChineseName);
 	} 
 	
