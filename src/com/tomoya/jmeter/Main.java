@@ -6,44 +6,31 @@ import java.util.HashMap;
 public class Main {
 	
 	public static void main(String[] args){
-		System.out.println(Tool.getHashCode("aaaa"));
-		System.out.println(Tool.getType("aaaa"));
-		System.out.println(Tool.getMD5("嗷嗷嗷"));
-		System.out.println(Tool.getChineseName());
-		
-		/*
-		String aaaaa = RSA.priKeyEncrypt("aaaaa", "C:\\Users\\FCD\\Desktop\\key");
-		System.out.println(aaaaa);
-		System.out.println(RSA.pubKeyDecrypt(aaaaa, "C:\\Users\\FCD\\Desktop\\key"));
-		
-		
-		String bbbbb = RSA.pubKeyEncrypt("bbbbb", "C:\\Users\\FCD\\Desktop\\key");
-		System.out.println(bbbbb);
-		System.out.println(RSA.priKeyDecrypt(bbbbb, "C:\\Users\\FCD\\Desktop\\key"));
-		*/
 
+		System.out.println("getChineseName(): " + Tool.getChineseName());
+		System.out.println("getHashCode(): " + Tool.getHashCode("文本"));
+		System.out.println("getMD5(): " + Tool.getMD5("文本"));
+		System.out.println("getMD5Cap(): " + Tool.getMD5Cap("文本"));
+		System.out.println("getType(): " + Tool.getType("文本"));
 
-		HashMap bbb = new HashMap();
-
-		bbb.put("id", 111);
-		bbb.put("name", "chen");
+		//JMETER JDBC方法测试
+		HashMap HM1 = new HashMap();
+		HM1.put("id", 10001);
+		HM1.put("name", "chen");
 		
-		HashMap ccc = new HashMap();
-		ccc.put("id", 222);
-		ccc.put("name", "xu");
+		HashMap HM2 = new HashMap();
+		HM2.put("id", 10002);
+		HM2.put("name", "xu");
 		
-		ArrayList aaa = new ArrayList();
-		aaa.add(bbb);
-		aaa.add(ccc);
-		System.out.println(aaa);
-		System.out.println(bbb);
-		System.out.println(ccc);
-		Tool.JDBCResultWriteFile(aaa, "id", "C:\\Users\\FCD\\Desktop\\111.debug1.txt");
-		String[] array =  {"id", "name"};
-		String sad = Tool.JDBCResultToString(aaa, array);
-		System.out.println(sad);
-		Tool.JDBCResultWriteFile(aaa, array, "C:\\Users\\FCD\\Desktop\\111.debug2.txt");
-		System.out.println("Git Done");
+		ArrayList AL = new ArrayList();
+		AL.add(HM1);
+		AL.add(HM2);
+		
+		Tool.writeFile("文本", "C:\\Users\\FCD\\Desktop\\文本.txt");
+		Tool.JDBCResultWriteFile(AL, "id", "C:\\Users\\FCD\\Desktop\\strID.txt");
+		
+		String[] strArray =  {"id", "name"};
+		Tool.JDBCResultWriteFile(AL, strArray, "C:\\Users\\FCD\\Desktop\\strArray.txt");
 
 	}
 }
