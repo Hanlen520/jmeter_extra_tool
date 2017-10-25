@@ -14,7 +14,7 @@ import org.apache.jmeter.samplers.Sampler;
 import com.tomoya.jmeter.Tool;
 
 /**
- * FileName: GetMD5.java Jmeter自定义函数，获取MD5值
+ * FileName: MD5.java Jmeter自定义函数，获取MD5值
  * 包名必须包含"functions"，导出的jar包放在/lib/ext目录下
  * 
  * @author tomoya
