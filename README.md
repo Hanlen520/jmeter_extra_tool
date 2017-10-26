@@ -1,12 +1,13 @@
 # jmeter_extra_tool
 
-@(Jmeter)[å·¥å…·ç±»|è‡ªå®šä¹‰å‡½æ•°|è½¯ä»¶æµ‹è¯•]
+@(Jmeter)[¹¤¾ßÀà|×Ô¶¨Òåº¯Êı|Èí¼ş²âÊÔ]
 
-**jmeter_extra_tool**æ˜¯ä¸€ä¸ªä¸“ä¸ºJmeteræœåŠ¡çš„å¸¸ç”¨å·¥å…·ç±»å’Œè‡ªå®šä¹‰å‡½æ•°é›†ã€‚ä¸ºæ—¥å¸¸çš„æµ‹è¯•å·¥ä½œå¸¦æ¥æ–¹ä¾¿ã€‚
+**jmeter_extra_tool**ÊÇÒ»¸ö×¨ÎªJmeter·şÎñµÄ³£ÓÃ¹¤¾ßÀàºÍ×Ô¶¨Òåº¯Êı¼¯¡£ÎªÈÕ³£µÄ²âÊÔ¹¤×÷´øÀ´·½±ã¡£
  
 - **com.tomoya.jmeter** 
-	- **Toolç±»**ï¼šåŒ…å«è·å–MD5å€¼ã€è·å–ä¸­æ–‡åã€JDBCç»“æœå†™å…¥æ–‡ä»¶ç­‰æ–¹æ³•ã€æ•°ç»„å†™å…¥Excelç­‰æ–¹æ³•
-	- **RSAç±»**ï¼šåŒ…å«å…¬é’¥åŠ å¯†ã€ç§é’¥è§£å¯†ï¼›ç§é’¥åŠ å¯†ã€å…¬é’¥è§£å¯†ç­‰æ–¹æ³•
+	- **ToolÀà**£º°üº¬»ñÈ¡MD5Öµ¡¢»ñÈ¡ÖĞÎÄÃû¡¢JDBC½á¹ûĞ´ÈëÎÄ¼şµÈ·½·¨¡¢Êı×éĞ´ÈëExcelµÈ·½·¨
+	- **RSAÀà**£º°üº¬¹«Ô¿¼ÓÃÜ¡¢Ë½Ô¿½âÃÜ£»Ë½Ô¿¼ÓÃÜ¡¢¹«Ô¿½âÃÜµÈ·½·¨
+	- **ExcelÀà**£º°üº¬¸²¸ÇĞ´ÈëºÍµ¥ĞĞ×·¼ÓĞ´ÈëExcelÎÄ¼şµÄ·½·¨
 - **com.tomoya.functions**
 	- **...** 
 
@@ -14,77 +15,82 @@
 
 [TOC]
 
-## é¡¹ç›®ç»“æ„
+## ÏîÄ¿½á¹¹
 ### com.tomoya.jmeter
 - com.tomoya.jmeter
 	- com.tomoya.jmeter.Tool
 		- getChineseName()
-		<br>è·å–2~4ä¸ªå­—çš„ä¸­æ–‡åï¼Œå¸¸ç”¨å­—ç‰ˆï¼ˆåå­—ä¸ºäº”ä¸ªç¬”ç”»ä»¥å†…ï¼‰
+		<br>»ñÈ¡2~4¸ö×ÖµÄÖĞÎÄÃû£¬³£ÓÃ×Ö°æ£¨Ãû×ÖÎªÎå¸ö±Ê»­ÒÔÄÚ£©
 		- getMD5(String)
-		<br>è¿”å›32ä½md5å€¼
+		<br>·µ»Ø32Î»md5Öµ
 		- getHashCode(String)
-		<br>è¿”å›HashCodeå€¼
+		<br>·µ»ØHashCodeÖµ
 		- writeFile(String, String)
-		<br>å­—ç¬¦ä¸²å†™å…¥æ–‡ä»¶
+		<br>×Ö·û´®Ğ´ÈëÎÄ¼ş
 		- JDBCResultWriteFile(ArrayList, String, String)
-		<br>Jmeterçš„JDBC Resultä¸­æŒ‡å®šåˆ—ï¼Œå†™å…¥æ–‡ä»¶
+		<br>JmeterµÄJDBC ResultÖĞÖ¸¶¨ÁĞ£¬Ğ´ÈëÎÄ¼ş
 		- JDBCResultWriteFile(ArrayList, String[], String)
-		<br>Jmeterçš„JDBC Resultä¸­æŒ‡å®šå¤šåˆ—ï¼Œå†™å…¥æ–‡ä»¶
+		<br>JmeterµÄJDBC ResultÖĞÖ¸¶¨¶àÁĞ£¬Ğ´ÈëÎÄ¼ş
 	- com.tomoya.jmeter.RSA
 		- pubKeyEncrypt(String, String)
-		<br>ä½¿ç”¨å…¬é’¥è¿›è¡ŒåŠ å¯†ï¼Œè¿”å›å…¬é’¥å¯†æ–‡
+		<br>Ê¹ÓÃ¹«Ô¿½øĞĞ¼ÓÃÜ£¬·µ»Ø¹«Ô¿ÃÜÎÄ
         - priKeyDecrypt(String, String)
-		<br>ä¼ å…¥å…¬é’¥å¯†æ–‡ï¼Œä½¿ç”¨ç§é’¥è¿›è¡Œè§£å¯†ï¼Œè¿”å›æ˜æ–‡
+		<br>´«Èë¹«Ô¿ÃÜÎÄ£¬Ê¹ÓÃË½Ô¿½øĞĞ½âÃÜ£¬·µ»ØÃ÷ÎÄ
         - priKeyEncrypt(String, String)
-		<br>ä½¿ç”¨ç§é’¥è¿›è¡ŒåŠ å¯†ï¼Œè¿”å›ç§é’¥å¯†æ–‡
+		<br>Ê¹ÓÃË½Ô¿½øĞĞ¼ÓÃÜ£¬·µ»ØË½Ô¿ÃÜÎÄ
         - pubKeyDecrypt(String, String)
-		<br>ä¼ å…¥ç§é’¥å¯†æ–‡ï¼Œä½¿ç”¨å…¬é’¥è¿›è¡Œè§£å¯†ï¼Œè¿”å›æ˜æ–‡
+		<br>´«ÈëË½Ô¿ÃÜÎÄ£¬Ê¹ÓÃ¹«Ô¿½øĞĞ½âÃÜ£¬·µ»ØÃ÷ÎÄ
 	- com.tomoya.jmeter.Excel
         - writeToExcel(String[], String[], String)
-		<br>ä¼ å…¥æ ‡é¢˜ã€å•è¡Œæ•°æ®æºã€æ–‡ä»¶åœ°å€ï¼Œè¿½åŠ å†™å…¥Excelæ–‡ä»¶
+		<br>´«Èë±êÌâ¡¢µ¥ĞĞÊı¾İÔ´¡¢ÎÄ¼şµØÖ·£¬×·¼ÓĞ´ÈëExcelÎÄ¼ş
         - writeToExcel2(String[], List<Map> String)
-		<br>ä¼ å…¥æ ‡é¢˜ã€æ•°æ®é›†ã€æ–‡ä»¶åœ°å€ï¼Œå¤å†™æ•´ä¸ªExcelæ–‡ä»¶
+		<br>´«Èë±êÌâ¡¢Êı¾İ¼¯¡¢ÎÄ¼şµØÖ·£¬¸´Ğ´Õû¸öExcelÎÄ¼ş
 
 ### com.tomoya.functions
 - com.tomoya.functions
 	- com.tomoya.functions.MD5
 		- execute(SampleResult, Sampler)
-		<br>return å‡½æ•°è¿è¡Œç»“æœ
+		<br>return º¯ÊıÔËĞĞ½á¹û
 		- getArgumentDesc()
-		<br>return å‚æ•°æè¿°
+		<br>return ²ÎÊıÃèÊö
 		- getReferenceKey()
-		<br>return å‡½æ•°å
+		<br>return º¯ÊıÃû
 		- setParameters(Collection<>)
-		<br>ä¼ å…¥Jmeterä¸­ç”¨æˆ·è¾“å…¥çš„å‚æ•°
+		<br>´«ÈëJmeterÖĞÓÃ»§ÊäÈëµÄ²ÎÊı
     - HashCode
         - ...
     - ChineseName
         - ...
 
-##å‘å¸ƒç‰ˆä¸‹è½½
+##·¢²¼°æÏÂÔØ
 ###jmeter_extra_tool-v1.0.jar
-[ç‚¹å‡»è¿›å…¥ä¸‹è½½é¡µé¢](https://pan.baidu.com/s/1miR4Fry "jmeter_extra_tool-v1.0.jar")
+[µã»÷½øÈëÏÂÔØÒ³Ãæ](https://pan.baidu.com/s/1miR4Fry "jmeter_extra_tool-v1.0.jar")
 
 ###jmeter_extra_tool-v1.1.jar
-[ç‚¹å‡»è¿›å…¥ä¸‹è½½é¡µé¢](https://pan.baidu.com/s/1dFixDNb "jmeter_extra_tool-v1.1.jar")
+[µã»÷½øÈëÏÂÔØÒ³Ãæ](https://pan.baidu.com/s/1dFixDNb "jmeter_extra_tool-v1.1.jar")
 
-[Apache POI](http://poi.apache.org/download.html "Apache POI") (ä¸‹è½½åæŠŠæ‰€æœ‰jaråŒ…copyåˆ°Jmeterå®‰è£…è·¯å¾„çš„/lib/extç›®å½•ä¸‹)
+[Apache POI](http://poi.apache.org/download.html "Apache POI") (ÏÂÔØºó°ÑËùÓĞjar°ücopyµ½Jmeter°²×°Â·¾¶µÄ/lib/extÄ¿Â¼ÏÂ)
 
-##ä½¿ç”¨æ–¹æ³•
-### Toolç±»
-> å°†ç¼–è¯‘å‡ºæ¥çš„jaråŒ…æ”¾å…¥Jmeterçš„/lib/extè·¯å¾„ä¸‹ï¼Œé‡æ–°å¯åŠ¨Jmeterã€‚åœ¨BeanShellç±»å‹ç»„ä»¶ä¸­ **import com.tomoya.jmeter.*;** å°±å¯ä»¥è°ƒç”¨Toolç±»å’ŒRSAç±»ä¸­çš„æ–¹æ³•äº†ã€‚
+##Ê¹ÓÃ·½·¨
+### ToolÀà
+> ½«±àÒë³öÀ´µÄjar°ü·ÅÈëJmeterµÄ/lib/extÂ·¾¶ÏÂ£¬ÖØĞÂÆô¶¯Jmeter¡£ÔÚBeanShellÀàĞÍ×é¼şÖĞ **import com.tomoya.jmeter.*;** ¾Í¿ÉÒÔµ÷ÓÃToolÀàºÍRSAÀàÖĞµÄ·½·¨ÁË¡£
 
 ![jmeter_extra_tool](http://img.blog.csdn.net/20171023092151650?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdG9tb3lhX2NoZW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-### è‡ªå®šä¹‰å‡½æ•°
-> å°†ç¼–è¯‘å‡ºæ¥çš„jaråŒ…æ”¾å…¥Jmeterçš„/lib/extè·¯å¾„ä¸‹ï¼Œé‡æ–°å¯åŠ¨Jmeterã€‚ä½ å°†ä¼šåœ¨ä½ çš„**å‡½æ•°åŠ©æ‰‹å¯¹è¯æ¡†**ä¸­æ‰¾åˆ°å®ƒä»¬ã€‚æœ¬äººå®šä¹‰çš„æ˜¯ä»¥ä¸€ä¸ªä¸‹åˆ’çº¿**"_"**ä¸ºå‰ç¼€ã€‚
+### ExcelÀà
+> ½«±àÒë³öÀ´µÄjar°üºÍÏÂÔØµÄApache POI ËùÓĞjar°ü·ÅÈëJmeterµÄ/lib/extÂ·¾¶ÏÂ£¬ÖØĞÂÆô¶¯Jmeter¡£ÔÚBeanShellÀàĞÍ×é¼şÖĞ **import com.tomoya.jmeter.*;** ¾Í¿ÉÒÔµ÷ÓÃExcelÀàÖĞµÄ·½·¨ÁË¡£
+
+![ÕâÀïĞ´Í¼Æ¬ÃèÊö](http://img.blog.csdn.net/20171026123922665?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdG9tb3lhX2NoZW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+### ×Ô¶¨Òåº¯Êı
+> ½«±àÒë³öÀ´µÄjar°ü·ÅÈëJmeterµÄ/lib/extÂ·¾¶ÏÂ£¬ÖØĞÂÆô¶¯Jmeter¡£Äã½«»áÔÚÄãµÄ**º¯ÊıÖúÊÖ¶Ô»°¿ò**ÖĞÕÒµ½ËüÃÇ¡£±¾ÈË¶¨ÒåµÄÊÇÒÔÒ»¸öÏÂ»®Ïß**"_"**ÎªÇ°×º¡£
 
 ![jmeter_extra_tool](http://img.blog.csdn.net/20171023092219747?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdG9tb3lhX2NoZW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 
-## ä»£ç å—
-### è‡ªå®šä¹‰å‡½æ•°ç¤ºä¾‹
-> **æ³¨æ„ï¼š**ç¼–å†™Jmeterè‡ªå®šä¹‰å‡½æ•°æ—¶ï¼ŒåŒ…åå¿…é¡»åŒ…å«"**functions**"ã€‚å¯¼å…¥**ApacheJMeter_core.jar**æ–‡ä»¶åˆ°ä½ çš„é¡¹ç›®ä¸­ã€‚æœ€åå¯¼å‡ºçš„jaråŒ…æ”¾åœ¨/lib/extç›®å½•ä¸‹ã€‚
+## ´úÂë¿é
+### ×Ô¶¨Òåº¯ÊıÊ¾Àı
+> **×¢Òâ£º**±àĞ´Jmeter×Ô¶¨Òåº¯ÊıÊ±£¬°üÃû±ØĞë°üº¬"**functions**"¡£µ¼Èë**ApacheJMeter_core.jar**ÎÄ¼şµ½ÄãµÄÏîÄ¿ÖĞ¡£×îºóµ¼³öµÄjar°ü·ÅÔÚ/lib/extÄ¿Â¼ÏÂ¡£
 
 
 ``` java
@@ -104,34 +110,34 @@ import org.apache.jmeter.samplers.Sampler;
 import com.tomoya.jmeter.Tool;
 
 /**
- * FileName: MD5.java Jmeterè‡ªå®šä¹‰å‡½æ•°ï¼Œè·å–MD5å€¼
- * åŒ…åå¿…é¡»åŒ…å«"functions"ï¼Œå¯¼å‡ºçš„jaråŒ…æ”¾åœ¨/lib/extç›®å½•ä¸‹
+ * FileName: MD5.java Jmeter×Ô¶¨Òåº¯Êı£¬»ñÈ¡MD5Öµ
+ * °üÃû±ØĞë°üº¬"functions"£¬µ¼³öµÄjar°ü·ÅÔÚ/lib/extÄ¿Â¼ÏÂ
  * 
  * @author tomoya
  * @version v1.0
  */
 public class MD5 extends AbstractFunction {
-	/** å‡½æ•°æè¿° */
+	/** º¯ÊıÃèÊö */
 	private static final List<String> desc = new LinkedList<String>();
 	static {
 		// desc.add("Get a MD5 String within specified parameter value.");
-		desc.add("æ˜æ–‡");
+		desc.add("Ã÷ÎÄ");
 	}
 
-	/** å‡½æ•°åç§° */
+	/** º¯ÊıÃû³Æ */
 	private static final String FUNCTION_NAME = "_MD5";
 	
-	/** ä¼ å…¥å‚æ•°çš„æœ€å°æ•°é‡ */
+	/** ´«Èë²ÎÊıµÄ×îĞ¡ÊıÁ¿ */
 	private static final int MIN_PARA_COUNT = 1;
-	/** ä¼ å…¥å‚æ•°çš„æœ€å¤§æ•°é‡ */
+	/** ´«Èë²ÎÊıµÄ×î´óÊıÁ¿ */
 	private static final int MAX_PARA_COUNT = 1;
 
-	/** å‡½æ•°æ¥æ”¶å€¼ */
+	/** º¯Êı½ÓÊÕÖµ */
 	private Object[] values;
 	
 	/**
-	 * å‡½æ•°ç®—æ³•
-	 * @return å‡½æ•°è¿ç®—ç»“æœ
+	 * º¯ÊıËã·¨
+	 * @return º¯ÊıÔËËã½á¹û
 	 */
 	private String run() {
 		String str = new String(((CompoundVariable) values[0]).execute().trim());
@@ -141,7 +147,7 @@ public class MD5 extends AbstractFunction {
 	
 
 	/**
-	 * è¿”å›å‚æ•°æè¿°
+	 * ·µ»Ø²ÎÊıÃèÊö
 	 */
 	@Override
 	public List<String> getArgumentDesc() {
@@ -149,7 +155,7 @@ public class MD5 extends AbstractFunction {
 	}
 	
 	/**
-	 * è¿”å›å‡½æ•°è¿è¡Œç»“æœ
+	 * ·µ»Øº¯ÊıÔËĞĞ½á¹û
 	 */
 	@Override
 	public String execute(SampleResult previousResult, Sampler currentSampler) throws InvalidVariableException {
@@ -161,7 +167,7 @@ public class MD5 extends AbstractFunction {
 	}
 	
 	/**
-	 * è¿”å›å‡½æ•°å
+	 * ·µ»Øº¯ÊıÃû
 	 */
 	@Override
 	public String getReferenceKey() {
@@ -169,12 +175,12 @@ public class MD5 extends AbstractFunction {
 	}
 	
 	/**
-	 * è¿”å›è¾“å…¥å‚æ•°
+	 * ·µ»ØÊäÈë²ÎÊı
 	 */
 	@Override
 	public void setParameters(Collection<CompoundVariable> parameters) throws InvalidVariableException {
-		checkParameterCount(parameters, MIN_PARA_COUNT, MAX_PARA_COUNT); // æ£€æŸ¥å‚æ•°çš„ä¸ªæ•°æ˜¯å¦æ­£ç¡®
-		values = parameters.toArray(); // å°†å€¼å­˜å…¥ç±»å˜é‡ä¸­
+		checkParameterCount(parameters, MIN_PARA_COUNT, MAX_PARA_COUNT); // ¼ì²é²ÎÊıµÄ¸öÊıÊÇ·ñÕıÈ·
+		values = parameters.toArray(); // ½«Öµ´æÈëÀà±äÁ¿ÖĞ
 	}
 
 }
@@ -182,25 +188,25 @@ public class MD5 extends AbstractFunction {
 
 
 
-## æ›´æ–°å†å²
-|ç‰ˆæœ¬     |æ—¥æœŸ      |å¤‡æ³¨      |
+## ¸üĞÂÀúÊ·
+|°æ±¾     |ÈÕÆÚ      |±¸×¢      |
 |:--------|:---------|:---------|
-|v1.0     |2017-10-07|å»ºç«‹|
-|v1.1     |2017-10-25|æ–°å¢Excelç±»ï¼ˆä¾èµ–Apache POIï¼‰|
+|v1.0     |2017-10-07|½¨Á¢|
+|v1.1     |2017-10-25|ĞÂÔöExcelÀà£¨ÒÀÀµApache POI£©|
 |         |         |          |
 
 
-## å¼€æºåœ°å€
-- coding.netï¼š[https://coding.net/u/tomoya_chen/p/jmeter_extra_tool/git](https://coding.net/u/tomoya_chen/p/jmeter_extra_tool/git "jmeter_extra_tool")
+## ¿ªÔ´µØÖ·
+- coding.net£º[https://coding.net/u/tomoya_chen/p/jmeter_extra_tool/git](https://coding.net/u/tomoya_chen/p/jmeter_extra_tool/git "jmeter_extra_tool")
 
 
-## åé¦ˆä¸å»ºè®®
-- åšå®¢ï¼š[@tomoya_chen](http://blog.csdn.net/tomoya_chen "ä¸ªäººåšå®¢")
-- é‚®ç®±ï¼š<tomoya_chen@163.com>
+## ·´À¡Óë½¨Òé
+- ²©¿Í£º[@tomoya_chen](http://blog.csdn.net/tomoya_chen "¸öÈË²©¿Í")
+- ÓÊÏä£º<tomoya_chen@163.com>
 
 
 ---------
-æ„Ÿè°¢é˜…è¯»è¿™ä»½å¸®åŠ©æ–‡æ¡£ã€‚æœ¬äººè¿˜æ˜¯åˆšå…¥é—¨çš„åˆå­¦è€…ï¼Œå¦‚æœæœ‰åé¦ˆå’Œå»ºè®®è¯·ä¸åèµæ•™ï¼
+¸ĞĞ»ÔÄ¶ÁÕâ·İ°ïÖúÎÄµµ¡£±¾ÈË»¹ÊÇ¸ÕÈëÃÅµÄ³õÑ§Õß£¬Èç¹ûÓĞ·´À¡ºÍ½¨ÒéÇë²»Áß´Í½Ì£¡
 
   [1]: http://blog.csdn.net/tomoya_chen
 
