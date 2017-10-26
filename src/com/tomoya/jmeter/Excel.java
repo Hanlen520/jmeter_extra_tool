@@ -50,7 +50,16 @@ public class Excel {
 	 * @throws Exception
 	 *             抛出异常
 	 */
-	public static void createExcel(String fileDir, String sheetName, String titleRow[]) throws Exception {
+	public static void createExcel(String sheetName, String titleRow[], String fileDir) throws Exception {
+		
+		//文件不存在时，创建文件夹
+		File file = new File(fileDir); 
+		File fileParent = file.getParentFile(); 
+		if(!fileParent.exists()){ 
+		 fileParent.mkdirs(); 
+		} 
+		file.createNewFile();
+		
 		// 创建workbook
 		workbook = new HSSFWorkbook();
 		// 添加Worksheet（不添加sheet时生成的xls文件打开时会报错)
@@ -194,7 +203,7 @@ public class Excel {
 	 */
 	public static void writeToExcel2(String[] title, List<Map> mapList, String fileDir) throws Exception {
 		if (!fileExist(fileDir)) {
-			createExcel(fileDir, "Sheet1", title);
+			createExcel("Sheet1", title, fileDir);
 		}
 		writeExcel2(mapList, fileDir);
 	}
@@ -245,7 +254,7 @@ public class Excel {
 	 */
 	public static void writeToExcel(String[] title, String[] rowArray, String filePath) throws Exception {
 		if (!fileExist(filePath)) {
-			createExcel(filePath, "Sheet1", title);
+			createExcel("Sheet1", title, filePath);
 		}
 		writeExcel(rowArray, filePath);
 

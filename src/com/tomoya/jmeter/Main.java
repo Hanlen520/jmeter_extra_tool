@@ -50,7 +50,7 @@ public class Main {
 		}
 		*/
 
-	        System.out.println(Excel.fileExist("E:/test2.xls"));   
+	        System.out.println(Excel.fileExist("E:/1/1/test2.xls"));   
 	        String[] title = {"id","name","password"};  
 	        List<Map> list=new ArrayList<Map>();
 	        Map<String,String> map=new HashMap<String,String>();
@@ -65,7 +65,7 @@ public class Main {
 	        list.add(map);
 	        list.add(map2);
 	        try {
-				Excel.writeToExcel2(title, list, "E:/test2.xls");
+				Excel.writeToExcel2(title, list, "E:/1/1/test2.xls");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}  
