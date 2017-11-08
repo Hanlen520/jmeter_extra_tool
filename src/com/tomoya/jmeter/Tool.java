@@ -131,7 +131,7 @@ public class Tool {
 	}
 
 	/**
-	 * 将字符串写入文件
+	 * 将字符串写入文件（覆盖）
 	 * 
 	 * @param str
 	 *            字符串
@@ -155,6 +155,40 @@ public class Tool {
 			if (!isExist) {
 				FileOutputStream fos = new FileOutputStream(file.getAbsoluteFile(), false);
 				fos.write(WRITE_TO_FILE.getBytes());
+				fos.close();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	/**
+	 * 将字符串写入文件（增量写入）
+	 * 
+	 * @param str
+	 *            字符串
+	 * @param filePath
+	 *            文件路径
+	 */
+	public static void writeFile2(String str, String filePath) {
+
+		// 写入文件.
+		String WRITE_TO_FILE = str;
+		String FILE_PATH = filePath;
+
+		try {
+			File file = new File(FILE_PATH);
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+
+			boolean isExist = false;
+
+			if (!isExist) {
+				FileOutputStream fos = new FileOutputStream(file.getAbsoluteFile(), true);
+				fos.write(WRITE_TO_FILE.getBytes());
+				fos.write("\r\n".getBytes());
 				fos.close();
 			}
 		} catch (IOException e) {

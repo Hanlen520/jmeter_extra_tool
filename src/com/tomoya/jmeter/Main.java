@@ -49,7 +49,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		*/
-
+			/*
 	        System.out.println(Excel.fileExist("E:/1/1/test2.xls"));   
 	        String[] title = {"id","name","password"};  
 	        List<Map> list=new ArrayList<Map>();
@@ -69,8 +69,9 @@ public class Main {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}  
+			*/
 		
-		
+		Tool.writeFile2("大发送撒旦四", "C:\\Users\\FCD\\Desktop\\文本.txt");
             
 
 	}
