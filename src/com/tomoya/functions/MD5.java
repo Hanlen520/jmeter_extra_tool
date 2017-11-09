@@ -46,7 +46,7 @@ public class MD5 extends AbstractFunction {
 	private String run() {
 		String str = new String(((CompoundVariable) values[0]).execute().trim());
 		String MD5 = Tool.getMD5(str);
-		return String.valueOf(MD5);
+		return MD5;
 	} 
 	
 
@@ -86,5 +86,7 @@ public class MD5 extends AbstractFunction {
 		checkParameterCount(parameters, MIN_PARA_COUNT, MAX_PARA_COUNT); // 检查参数的个数是否正确
 		values = parameters.toArray(); // 将值存入类变量中
 	}
+	
+
 
 }

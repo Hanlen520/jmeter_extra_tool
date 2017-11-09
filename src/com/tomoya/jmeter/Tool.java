@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import java.util.*;   
+import java.text.SimpleDateFormat;  
+
 /**
  * 用于Jmeter提供的测试工具类
  * 
@@ -299,5 +302,31 @@ public class Tool {
 		writeFile(str, filePath);
 
 	}
+	
+	/**
+	 * 
+	 * @param type 日期类型 -1代表昨日 0代表今日 1代表明日
+	 * @return 返回日期 默认格式为yyyy-MM-dd
+	 */
+	public static String date(int type) {
+		Calendar cal =Calendar.getInstance();  
+	    cal.add(Calendar.DATE,type);  
+	    String date = new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
+	    return date;
+	}
+	
+	/**
+	 * 
+	 * @param type 日期类型 -1代表昨日 0代表今日 1代表明日
+	 * @param format 日期格式
+	 * @return 返回日期
+	 */
+	public static String date(int type, String format) {
+		Calendar cal =Calendar.getInstance();  
+	    cal.add(Calendar.DATE,type);  
+	    String date = new SimpleDateFormat(format).format(cal.getTime());
+	    return date;
+	}
+    
 
 }

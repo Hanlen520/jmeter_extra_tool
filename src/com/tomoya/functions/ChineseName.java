@@ -3,7 +3,6 @@ package com.tomoya.functions;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 
 import org.apache.jmeter.engine.util.CompoundVariable;
 import org.apache.jmeter.functions.AbstractFunction;
@@ -38,7 +37,7 @@ public class ChineseName extends AbstractFunction {
 	 */
 	private String run() {
 		String ChineseName = Tool.getChineseName();
-		return String.valueOf(ChineseName);
+		return ChineseName;
 	} 
 	
 

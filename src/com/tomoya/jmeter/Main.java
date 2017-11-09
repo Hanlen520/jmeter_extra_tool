@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class Main {
 	
 	public static void main(String[] args){
@@ -71,8 +72,15 @@ public class Main {
 			}  
 			*/
 		
-		Tool.writeFile2("大发送撒旦四", "C:\\Users\\FCD\\Desktop\\文本.txt");
-            
+		//Tool.writeFile2("大发送撒旦四", "C:\\Users\\FCD\\Desktop\\文本.txt");
+		
+	    
+	      
+		System.out.println(Tool.date(-1, "yyyy-MM-dd"));
+		System.out.println(Tool.date(0));
+		System.out.println(Tool.date(1));
+
+        
 
 	}
 }
