@@ -76,9 +76,9 @@ public class Main {
 		
 	    
 	      
-		System.out.println(Tool.date(-1, "yyyy-MM-dd"));
-		System.out.println(Tool.date(0));
-		System.out.println(Tool.date(1));
+		System.out.println(Tool.getDate(-1, "yyyy-MM-dd"));
+		System.out.println(Tool.getDate(0));
+		System.out.println(Tool.getDate(1));
 
         
 

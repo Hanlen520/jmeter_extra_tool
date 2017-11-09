@@ -24,7 +24,7 @@ public class Date extends AbstractFunction {
 	private static final List<String> desc = new LinkedList<String>();
 	static {
 		// desc.add("Get a MD5 String within specified parameter value.");
-		desc.add("类型 (昨日: -1, 今日: 0, 明日: 1)");
+		desc.add("类型 (昨日: -1, 今日: 0, 明日: 1, 默认: 0)");
 		desc.add("格式 (默认: yyyy-MM-dd)");
 	}
 
@@ -63,7 +63,7 @@ public class Date extends AbstractFunction {
 			}
 		}
 				
-		return Tool.date(type, format);
+		return Tool.getDate(type, format);
 	} 
 	
 

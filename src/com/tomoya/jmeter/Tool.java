@@ -308,7 +308,7 @@ public class Tool {
 	 * @param type 日期类型 -1代表昨日 0代表今日 1代表明日
 	 * @return 返回日期 默认格式为yyyy-MM-dd
 	 */
-	public static String date(int type) {
+	public static String getDate(int type) {
 		Calendar cal =Calendar.getInstance();  
 	    cal.add(Calendar.DATE,type);  
 	    String date = new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
@@ -321,7 +321,7 @@ public class Tool {
 	 * @param format 日期格式
 	 * @return 返回日期
 	 */
-	public static String date(int type, String format) {
+	public static String getDate(int type, String format) {
 		Calendar cal =Calendar.getInstance();  
 	    cal.add(Calendar.DATE,type);  
 	    String date = new SimpleDateFormat(format).format(cal.getTime());
