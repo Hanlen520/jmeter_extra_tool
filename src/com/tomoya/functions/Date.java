@@ -44,18 +44,25 @@ public class Date extends AbstractFunction {
 	 * @return 函数运算结果
 	 */
 	private String run() {
-		String val1 = new String(((CompoundVariable) values[0]).execute().trim());
-		String val2 = new String(((CompoundVariable) values[1]).execute().trim());
 		int type = 0;
 		String format = "yyyy-MM-dd";
 		
-		if (!(val1 == null || val1.length() <= 0)) {
-			type = Integer.parseInt(val1);
+		if (values.length == 1) {
+			String val1 = new String(((CompoundVariable) values[0]).execute().trim());
+			if (!(val1 == null || val1.length() <= 0)) {
+				type = Integer.parseInt(val1);
+			}
+		}else if(values.length == 2) {
+			String val1 = new String(((CompoundVariable) values[0]).execute().trim());
+			String val2 = new String(((CompoundVariable) values[1]).execute().trim());
+			if (!(val1 == null || val1.length() <= 0)) {
+				type = Integer.parseInt(val1);
+			}
+			if (!(val2 == null || val2.length() <= 0)) {
+				format = val2;
+			}
 		}
-		if (!(val2 == null || val2.length() <= 0)) {
-			format = val2;
-		}
-		
+				
 		return Tool.date(type, format);
 	} 
 	
