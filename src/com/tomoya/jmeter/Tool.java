@@ -364,4 +364,85 @@ public class Tool {
 		file.createNewFile();
 	}
 
+	/**
+	 * 生成'value1', 'value2'...用于sql语句的in条件
+	 * 
+	 * @param list
+	 *            JDBC返回的ArrayList集
+	 * @param key
+	 *            JDBC返回的字段名
+	 * @return 'value1', 'value2', 'value3' ...
+	 */
+	public static String JDBCResultToSql(ArrayList list, String key) {
+
+		// 接受数据库的JSON结果
+		ArrayList DBResultList = list;
+
+		// 拼接字符串
+		String DBResultToStr = "";
+
+		for (int i = 0; i < DBResultList.size(); i++) {
+			if (DBResultList.get(i) instanceof HashMap) {
+				DBResultToStr = DBResultToStr + "'" + ((HashMap) DBResultList.get(i)).get(key) + "'";
+			} else {
+				DBResultToStr = DBResultToStr + "'" + ((String) DBResultList.get(i)) + "'";
+			}
+
+			if (i + 1 < DBResultList.size()) {
+				DBResultToStr = DBResultToStr + ",";
+			}
+		}
+		return DBResultToStr;
+
+	}
+
+	/**
+	 * 
+	 * @param start
+	 *            最小范围
+	 * @param end
+	 *            最大范围
+	 * @return 随机数
+	 */
+	private static int getNum(int start, int end) {
+		return (int) (Math.random() * (end - start + 1) + start);
+	}
+
+	/**
+	 * 
+	 * @return 返回11位手机号码
+	 */
+	public static String getMobile() {
+		String[] telFirst = "134,135,136,137,138,139,150,151,152,157,158,159,130,131,132,155,156,133,153".split(",");
+
+		int index = getNum(0, telFirst.length - 1);
+		String first = telFirst[index];
+		String second = String.valueOf(getNum(1, 888) + 10000).substring(1);
+		String third = String.valueOf(getNum(1, 9100) + 10000).substring(1);
+		return first + second + third;
+	}
+
+	/**
+	 * 返回Email
+	 * 
+	 * @param Min
+	 *            最小长度
+	 * @param Max
+	 *            最大长度
+	 * @return 返回指定范围的邮箱帐号
+	 */
+	public static String getEmail(int Min, int Max) {
+		final String base = "abcdefghijklmnopqrstuvwxyz0123456789";
+		final String[] email_suffix = "@qq.com,@163.com,@gmail.com,@sina.com,@sohu.com,@yahoo.com.cn".split(",");
+
+		int length = getNum(Min, Max);
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < length; i++) {
+			int number = (int) (Math.random() * base.length());
+			sb.append(base.charAt(number));
+		}
+		sb.append(email_suffix[(int) (Math.random() * email_suffix.length)]);
+		return sb.toString();
+	}
+
 }
