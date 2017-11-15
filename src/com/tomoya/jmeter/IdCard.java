@@ -3663,11 +3663,11 @@ public class IdCard {
     
     /**
      * 
-     * @param AreaName 区域名称 例:上海
+     * @param City 区域名称 例:上海
      * @return 指定地区的随机身份证
      */
-    public static String getIdCard(String AreaName) {
-    	return generate(AreaName);
+    public static String getIdCard(String City) {
+    	return generate(City);
     }
     
     

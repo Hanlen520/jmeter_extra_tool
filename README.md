@@ -26,11 +26,17 @@
 		- getHashCode(String)
 		<br>返回HashCode值
 		- writeFile(String, String)
-		<br>字符串写入文件
+		<br>字符串写入文件（覆盖）
+		- writeFile2(String, String)
+		<br>字符串写入文件（增量）
 		- JDBCResultWriteFile(ArrayList, String, String)
 		<br>Jmeter的JDBC Result中指定列，写入文件
 		- JDBCResultWriteFile(ArrayList, String[], String)
 		<br>Jmeter的JDBC Result中指定多列，写入文件
+		- getMobile(String, String)
+		<br>获取11位手机号
+		- getEmail(ArrayList, String, String)
+		<br>获取指定范围长度的邮箱地址
 	- com.tomoya.jmeter.RSA
 		- pubKeyEncrypt(String, String)
 		<br>使用公钥进行加密，返回公钥密文
@@ -45,6 +51,11 @@
 		<br>传入标题、单行数据源、文件地址，追加写入Excel文件
         - writeToExcel2(String[], List<Map> String)
 		<br>传入标题、数据集、文件地址，复写整个Excel文件
+	- com.tomoya.jmeter.IdCard
+        - getIdCard()
+		<br>生成随机身份证号码
+        - getIdCard(String City)
+		<br>生成指定城市的身份证号码
 
 ### com.tomoya.functions
 - com.tomoya.functions
@@ -62,6 +73,12 @@
     - ChineseName
         - ...
     - Date
+        - ...
+    - Mobile
+        - ...
+    - Email
+        - ...
+    - IdCardNo
         - ...
 
 ##发布版下载
