@@ -52,13 +52,8 @@ public class Excel {
 	 */
 	public static void createExcel(String sheetName, String titleRow[], String fileDir) throws Exception {
 		
-		//文件不存在时，创建文件夹
-		File file = new File(fileDir); 
-		File fileParent = file.getParentFile(); 
-		if(!fileParent.exists()){ 
-		 fileParent.mkdirs(); 
-		} 
-		file.createNewFile();
+		//文件路径的文件夹不存在时，创建文件夹
+		Tool.createNewFile(fileDir);
 		
 		// 创建workbook
 		workbook = new HSSFWorkbook();

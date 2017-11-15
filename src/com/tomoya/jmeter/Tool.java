@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import java.util.*;   
-import java.text.SimpleDateFormat;  
+import java.util.*;
+import java.text.SimpleDateFormat;
 
 /**
  * 用于Jmeter提供的测试工具类
@@ -140,8 +140,13 @@ public class Tool {
 	 *            字符串
 	 * @param filePath
 	 *            文件路径
+	 * @throws Exception
+	 *             抛出异常
 	 */
-	public static void writeFile(String str, String filePath) {
+	public static void writeFile(String str, String filePath) throws Exception {
+
+		// 文件路径的文件夹不存在时，创建文件夹
+		Tool.createNewFile(filePath);
 
 		// 写入文件.
 		String WRITE_TO_FILE = str;
@@ -165,7 +170,7 @@ public class Tool {
 		}
 
 	}
-	
+
 	/**
 	 * 将字符串写入文件（增量写入）
 	 * 
@@ -173,8 +178,13 @@ public class Tool {
 	 *            字符串
 	 * @param filePath
 	 *            文件路径
+	 * @throws Exception
+	 *             抛出异常
 	 */
-	public static void writeFile2(String str, String filePath) {
+	public static void writeFile2(String str, String filePath) throws Exception {
+
+		// 文件路径的文件夹不存在时，创建文件夹
+		Tool.createNewFile(filePath);
 
 		// 写入文件.
 		String WRITE_TO_FILE = str;
@@ -241,8 +251,11 @@ public class Tool {
 	 *            JDBC返回的字段名
 	 * @param filePath
 	 *            文件路径
+	 * @throws Exception
+	 *             抛出异常
 	 */
-	public static void JDBCResultWriteFile(ArrayList list, String key, String filePath) {
+	public static void JDBCResultWriteFile(ArrayList list, String key, String filePath) throws Exception {
+
 		String str = JDBCResultToString(list, key);
 		writeFile(str, filePath);
 
@@ -296,37 +309,59 @@ public class Tool {
 	 *            JDBC返回的字段名数组
 	 * @param filePath
 	 *            文件路径
+	 * @throws Exception
+	 *             抛出异常
 	 */
-	public static void JDBCResultWriteFile(ArrayList list, String[] keyArray, String filePath) {
+	public static void JDBCResultWriteFile(ArrayList list, String[] keyArray, String filePath) throws Exception {
+
 		String str = JDBCResultToString(list, keyArray);
 		writeFile(str, filePath);
 
 	}
-	
+
 	/**
 	 * 
-	 * @param type 日期类型 -1代表昨日 0代表今日 1代表明日
+	 * @param type
+	 *            日期类型 -1代表昨日 0代表今日 1代表明日
 	 * @return 返回日期 默认格式为yyyy-MM-dd
 	 */
 	public static String getDate(int type) {
-		Calendar cal =Calendar.getInstance();  
-	    cal.add(Calendar.DATE,type);  
-	    String date = new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
-	    return date;
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DATE, type);
+		String date = new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
+		return date;
 	}
-	
+
 	/**
 	 * 
-	 * @param type 日期类型 -1代表昨日 0代表今日 1代表明日
-	 * @param format 日期格式
+	 * @param type
+	 *            日期类型 -1代表昨日 0代表今日 1代表明日
+	 * @param format
+	 *            日期格式
 	 * @return 返回日期
 	 */
 	public static String getDate(int type, String format) {
-		Calendar cal =Calendar.getInstance();  
-	    cal.add(Calendar.DATE,type);  
-	    String date = new SimpleDateFormat(format).format(cal.getTime());
-	    return date;
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DATE, type);
+		String date = new SimpleDateFormat(format).format(cal.getTime());
+		return date;
 	}
-    
+
+	/**
+	 * 
+	 * @param fileDir
+	 *            文件路径
+	 * @throws Exception
+	 *             抛出异常
+	 */
+	public static void createNewFile(String fileDir) throws Exception {
+		// 文件路径的文件夹不存在时，创建文件夹
+		File file = new File(fileDir);
+		File fileParent = file.getParentFile();
+		if (!fileParent.exists()) {
+			fileParent.mkdirs();
+		}
+		file.createNewFile();
+	}
 
 }
