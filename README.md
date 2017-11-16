@@ -217,11 +217,11 @@ public class MD5 extends AbstractFunction {
 
 
 ## 开源地址
-- coding.net：[https://coding.net/u/tomoya_chen/p/jmeter_extra_tool/git] (https://coding.net/u/tomoya_chen/p/jmeter_extra_tool/git "jmeter_extra_tool")
+- coding.net：[https://coding.net/u/tomoya_chen/p/jmeter_extra_tool/git](https://coding.net/u/tomoya_chen/p/jmeter_extra_tool/git "jmeter_extra_tool")
 
 
 ## 反馈与建议
-- 博客：[tomoya_chen] (http://blog.csdn.net/tomoya_chen "个人博客")
+- 博客：[tomoya_chen](http://blog.csdn.net/tomoya_chen "个人博客")
 - 邮箱：<tomoya_chen@163.com>
 
 
