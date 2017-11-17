@@ -132,9 +132,9 @@ public class Tool {
 		return firstName[index];
 
 	}
-
+	
 	/**
-	 * 将字符串写入文件（覆盖）
+	 * 将字符串写入文件（覆盖文本）
 	 * 
 	 * @param str
 	 *            字符串
@@ -145,46 +145,26 @@ public class Tool {
 	 */
 	public static void writeFile(String str, String filePath) throws Exception {
 
-		// 文件路径的文件夹不存在时，创建文件夹
-		Tool.createNewFile(filePath);
-
-		// 写入文件.
-		String WRITE_TO_FILE = str;
-		String FILE_PATH = filePath;
-
-		try {
-			File file = new File(FILE_PATH);
-			if (!file.exists()) {
-				file.createNewFile();
-			}
-
-			boolean isExist = false;
-
-			if (!isExist) {
-				FileOutputStream fos = new FileOutputStream(file.getAbsoluteFile(), false);
-				fos.write(WRITE_TO_FILE.getBytes());
-				fos.close();
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		writeFile(str, filePath, false);
 
 	}
 
 	/**
-	 * 将字符串写入文件（增量写入）
+	 * 将字符串写入文件
 	 * 
 	 * @param str
 	 *            字符串
 	 * @param filePath
 	 *            文件路径
+	 * @param keep
+	 *            是否继续写入 flase 覆盖, ture 增量
 	 * @throws Exception
 	 *             抛出异常
 	 */
-	public static void writeFile2(String str, String filePath) throws Exception {
+	public static void writeFile(String str, String filePath, boolean keep) throws Exception {
 
 		// 文件路径的文件夹不存在时，创建文件夹
-		Tool.createNewFile(filePath);
+		createNewFile(filePath);
 
 		// 写入文件.
 		String WRITE_TO_FILE = str;
@@ -199,7 +179,7 @@ public class Tool {
 			boolean isExist = false;
 
 			if (!isExist) {
-				FileOutputStream fos = new FileOutputStream(file.getAbsoluteFile(), true);
+				FileOutputStream fos = new FileOutputStream(file.getAbsoluteFile(), keep);
 				fos.write(WRITE_TO_FILE.getBytes());
 				fos.write("\r\n".getBytes());
 				fos.close();
@@ -209,6 +189,7 @@ public class Tool {
 		}
 
 	}
+
 
 	/**
 	 * 将Jmeter的JDBC Result中指定列，转换成单列多行的字符串

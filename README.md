@@ -28,8 +28,8 @@
 		<br>返回HashCode值
 		- writeFile(String, String)
 		<br>字符串写入文件（覆盖）
-		- writeFile2(String, String)
-		<br>字符串写入文件（增量）
+		- writeFile2(String, String, boolean)
+		<br>字符串写入文件（flase 覆盖, true 增量）
 		- JDBCResultWriteFile(ArrayList, String, String)
 		<br>Jmeter的JDBC Result中指定列，写入文件
 		- JDBCResultWriteFile(ArrayList, String[], String)
