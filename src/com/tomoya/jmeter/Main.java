@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
 
@@ -66,14 +68,20 @@ public class Main {
 
 		System.out.println(Tool.getMobile());
 		System.out.println(Tool.getEmail(5, 10));
-		
+
 		IdCard g = new IdCard();
 		for (int i = 0; i < 3; i++) {
 			System.out.println(g.getIdCard());
 		}
-		
+
 		System.out.println(IdCard.getIdCard());
 		System.out.println(IdCard.getIdCard("ÉÏº£ÊÐ"));
 
+		//////////////////
+
+		String source = "m_threads\">${__P(willStartThreads,50)}</stringProp>${__P(wasdi1teads,)}123213${__P(123123213,)}";
+		String regex = "\\$\\{__P\\((.*?),(.*?)\\)\\}";
+		System.out.println(Tool.getRegexResult(regex, source, 1));
+		///////
 	}
 }

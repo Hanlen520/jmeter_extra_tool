@@ -3,14 +3,12 @@ package com.tomoya.jmeter;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Random;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.text.SimpleDateFormat;
 
 /**
@@ -132,7 +130,7 @@ public class Tool {
 		return firstName[index];
 
 	}
-	
+
 	/**
 	 * 将字符串写入文件（覆盖文本）
 	 * 
@@ -189,7 +187,6 @@ public class Tool {
 		}
 
 	}
-
 
 	/**
 	 * 将Jmeter的JDBC Result中指定列，转换成单列多行的字符串
@@ -424,6 +421,40 @@ public class Tool {
 		}
 		sb.append(email_suffix[(int) (Math.random() * email_suffix.length)]);
 		return sb.toString();
+	}
+
+	/**
+	 * 正则表达式返回所有匹配项的整个字符串
+	 * 
+	 * @param regex
+	 *            正则表达式
+	 * @param source
+	 *            来源文本
+	 * @return 匹配的所有项 默认mode0
+	 */
+	public static List<String> getRegexResult(String regex, String source) {
+		return getRegexResult(regex, source, 0);
+	}
+
+	/**
+	 * 正则表达式返回所有匹配项 mode0为整个字符串，mode1为第1个括号内容，mode2为第2个括号内容...
+	 * 
+	 * @param regex
+	 *            正则表达式
+	 * @param source
+	 *            来源文本
+	 * @param mode
+	 *            模式 0完整 1第一个括号内容 2第二个括号内容
+	 * @return 匹配的所有项
+	 */
+	public static List<String> getRegexResult(String regex, String source, int mode) {
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(source);
+		List<String> list = new ArrayList<String>();
+		while (matcher.find()) {
+			list.add(matcher.group(mode));
+		}
+		return list;
 	}
 
 }
