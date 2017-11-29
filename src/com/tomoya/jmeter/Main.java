@@ -83,5 +83,14 @@ public class Main {
 		String regex = "\\$\\{__P\\((.*?),(.*?)\\)\\}";
 		System.out.println(Tool.getRegexResult(regex, source, 1));
 		///////
+		
+		
+		
+		System.out.println(Tool.isSpecialChar("!@"));
+		
+		
+		
+		
+		
 	}
 }

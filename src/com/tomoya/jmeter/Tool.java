@@ -457,4 +457,18 @@ public class Tool {
 		return list;
 	}
 
+	/**
+	 * 判断是否包含特殊字符
+	 * 
+	 * @param str
+	 *            传入字符串
+	 * @return true包含, false不包含
+	 */
+	public static boolean isSpecialChar(String str) {
+		String regEx = "[ _`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]|\n|\r|\t";
+		Pattern p = Pattern.compile(regEx);
+		Matcher m = p.matcher(str);
+		return m.find();
+	}
+
 }
