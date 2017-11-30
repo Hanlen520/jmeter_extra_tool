@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.swing.filechooser.FileSystemView;
+
 import java.text.SimpleDateFormat;
 
 /**
@@ -470,5 +473,10 @@ public class Tool {
 		Matcher m = p.matcher(str);
 		return m.find();
 	}
+	
+	//桌面路径
+	public static final String DESKTOP = FileSystemView.getFileSystemView().getHomeDirectory().getPath();
+	//程序运行路径，jmeter调用时为jmeter安装路径/bin
+	public static final String JMETER_HOME = System.getProperty("user.dir");
 
 }

@@ -1,5 +1,7 @@
 package com.tomoya.jmeter;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,28 +12,22 @@ import java.util.regex.Pattern;
 public class Main {
 
 	public static void main(String[] args) {
-
-		System.out.println("getChineseName(): " + Tool.getChineseName());
-		System.out.println("getHashCode(): " + Tool.getHashCode("文本"));
-		System.out.println("getMD5(): " + Tool.getMD5("文本"));
-		System.out.println("getMD5Cap(): " + Tool.getMD5Cap("文本"));
-		System.out.println("getType(): " + Tool.getType("文本"));
-
-		// JMETER JDBC方法测试
-		HashMap HM1 = new HashMap();
-		HM1.put("id", 10001);
-		HM1.put("name", "chen");
-
-		HashMap HM2 = new HashMap();
-		HM2.put("id", 10002);
-		HM2.put("name", "xu");
-
-		ArrayList AL = new ArrayList();
-		AL.add(HM1);
-		AL.add(HM2);
-
-		System.out.println(Tool.JDBCResultToSql(AL, "id"));
-
+		/*
+		 * System.out.println("getChineseName(): " + Tool.getChineseName());
+		 * System.out.println("getHashCode(): " + Tool.getHashCode("文本"));
+		 * System.out.println("getMD5(): " + Tool.getMD5("文本"));
+		 * System.out.println("getMD5Cap(): " + Tool.getMD5Cap("文本"));
+		 * System.out.println("getType(): " + Tool.getType("文本"));
+		 * 
+		 * // JMETER JDBC方法测试 HashMap HM1 = new HashMap(); HM1.put("id", 10001);
+		 * HM1.put("name", "chen");
+		 * 
+		 * HashMap HM2 = new HashMap(); HM2.put("id", 10002); HM2.put("name", "xu");
+		 * 
+		 * ArrayList AL = new ArrayList(); AL.add(HM1); AL.add(HM2);
+		 * 
+		 * System.out.println(Tool.JDBCResultToSql(AL, "id"));
+		 */
 		// Tool.writeFile("文本", "C:\\Users\\FCD\\Desktop\\文本.txt");
 		// Tool.JDBCResultWriteFile(AL, "id", "C:\\Users\\FCD\\Desktop\\strID.txt");
 
@@ -61,36 +57,55 @@ public class Main {
 		 */
 
 		// Tool.writeFile2("大发送撒旦四", "C:\\Users\\FCD\\Desktop\\文本.txt");
-
-		System.out.println(Tool.getDate(-1, "yyyy-MM-dd"));
-		System.out.println(Tool.getDate(0));
-		System.out.println(Tool.getDate(1));
-
-		System.out.println(Tool.getMobile());
-		System.out.println(Tool.getEmail(5, 10));
-
-		IdCard g = new IdCard();
-		for (int i = 0; i < 3; i++) {
-			System.out.println(g.getIdCard());
+		/*
+		 * System.out.println(Tool.getDate(-1, "yyyy-MM-dd"));
+		 * System.out.println(Tool.getDate(0)); System.out.println(Tool.getDate(1));
+		 * 
+		 * System.out.println(Tool.getMobile()); System.out.println(Tool.getEmail(5,
+		 * 10));
+		 * 
+		 * IdCard g = new IdCard(); for (int i = 0; i < 3; i++) {
+		 * System.out.println(g.getIdCard()); }
+		 * 
+		 * System.out.println(IdCard.getIdCard());
+		 * System.out.println(IdCard.getIdCard("上海市"));
+		 * 
+		 * //////////////////
+		 * 
+		 * String source =
+		 * "m_threads\">${__P(willStartThreads,50)}</stringProp>${__P(wasdi1teads,)}123213${__P(123123213,)}";
+		 * String regex = "\\$\\{__P\\((.*?),(.*?)\\)\\}";
+		 * System.out.println(Tool.getRegexResult(regex, source, 1)); ///////
+		 * 
+		 * System.out.println(Tool.isSpecialChar("!@"));
+		 */
+		int money = 500000000;
+		int ren = 100;
+		int[] play = qiangRedBag(money, ren);
+		System.out.println("红包金额为" + (double) (money / 100) + "元, " + "总共" + ren + "个人抢! ");
+		for (int i = 0; i < play.length; i++) {
+			System.out.println("第" + (i + 1) + "个人领取的红包是: " + (double) play[i] / 100 + "元");
 		}
+		
+		
 
-		System.out.println(IdCard.getIdCard());
-		System.out.println(IdCard.getIdCard("上海市"));
 
-		//////////////////
-
-		String source = "m_threads\">${__P(willStartThreads,50)}</stringProp>${__P(wasdi1teads,)}123213${__P(123123213,)}";
-		String regex = "\\$\\{__P\\((.*?),(.*?)\\)\\}";
-		System.out.println(Tool.getRegexResult(regex, source, 1));
-		///////
-		
-		
-		
-		System.out.println(Tool.isSpecialChar("!@"));
-		
-		
-		
-		
-		
 	}
+	
+	public static int[] qiangRedBag(int money, int renShu) {
+		int[] moneyPerRen = new int[renShu];
+		int moneyTmp = money;
+		for (int i = 0; i < renShu - 1; i++) {
+			int tmp = moneyTmp / (renShu - i);
+			moneyPerRen[i] = (int) (Math.random() * tmp) + 1;
+			moneyTmp = moneyTmp - moneyPerRen[i];
+		}
+		moneyPerRen[renShu - 1] = moneyTmp;
+
+		return moneyPerRen;
+
+	}
+	
+	
+
 }
