@@ -12,6 +12,8 @@ import java.util.regex.Pattern;
 public class Main {
 
 	public static void main(String[] args) {
+		String  aaaaa  = "aa";
+		System.out.println("a的变量地址: " + aaaaa.hashCode());
 		/*
 		 * System.out.println("getChineseName(): " + Tool.getChineseName());
 		 * System.out.println("getHashCode(): " + Tool.getHashCode("文本"));
@@ -74,21 +76,94 @@ public class Main {
 		 * 
 		 * String source =
 		 * "m_threads\">${__P(willStartThreads,50)}</stringProp>${__P(wasdi1teads,)}123213${__P(123123213,)}";
-		 * String regex = "\\$\\{__P\\((.*?),(.*?)\\)\\}";
+		 * String regex = "\\$\\{__P\\((.*?),(.*?)\\)\\}";\
 		 * System.out.println(Tool.getRegexResult(regex, source, 1)); ///////
 		 * 
 		 * System.out.println(Tool.isSpecialChar("!@"));
 		 */
+		//System.out.println(Tool.getRegexResult("SmsCode\":\"(.+?)\",", "SmsCode\":\"895848\","));
+		
 		int money = 500000000;
-		int ren = 100;
+		int ren = 1;
 		int[] play = qiangRedBag(money, ren);
 		System.out.println("红包金额为" + (double) (money / 100) + "元, " + "总共" + ren + "个人抢! ");
 		for (int i = 0; i < play.length; i++) {
 			System.out.println("第" + (i + 1) + "个人领取的红包是: " + (double) play[i] / 100 + "元");
 		}
 		
+		try {
+			Tool.writeFile("A", "C:\\Users\\FCD\\Desktop\\companyId.txt");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+//		Redis re = new Redis();
+//		re.HOST = "192.168.1.105";
+//		System.out.println(re.HOST);
+		
 		
 
+		
+		//生成数据
+		long mobileIndex = 13800140001L;
+		int mobileLoop = 0;
+		String mobile = "";
+		for (int i = 0; i < mobileLoop; i++) {
+			mobile += (mobileIndex + i);
+			if (i < mobileLoop - 1) {
+				mobile += "\r\n";
+			}
+		
+		}
+		
+		System.out.println(mobile);
+		try {
+			Tool.writeFile(mobile, "C:\\Users\\FCD\\Desktop\\mobile4.txt");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+
+//		//坐标系
+//		Redis reZBX = new Redis();
+//		System.out.println(reZBX.getRedisZBX(1,"18651191111"));
+//		
+//		//其他
+//		Redis re1 = new Redis("192.168.1.105", 6379, "qk365.com");
+//		System.out.println(re1.getRedis("n:VerifyCode,c:VerifyCode:1:18651191111", "SmsCode\":\"(.+?)\","));
+//		
+//		//其他2
+//		Redis re2 = new Redis("192.168.1.117", 6379);
+//		System.out.println(re2.getRedis("merchant:00101"));
+
+		
+//		//获取验证码
+//		
+//		long mobileIndex2 = 13800130001L;
+//		int mobileLoop2 = 5000;
+//		String mobile2 = "";
+//		Redis re = new Redis();
+//		re.setConfig("192.168.1.135", 6379, "qk365.com");
+//		for (int i = 0; i < mobileLoop2; i++) {
+//			mobile2 = (mobileIndex2 + i) + "," + re.getRedis(2,mobileIndex2 + i + "");
+//			if (i < mobileLoop2 - 1) {
+//				mobile2 += "\r\n";
+//			}
+//		
+//		}
+//		System.out.println(mobile2);
+//
+//		try {
+//			Tool.writeFile(mobile2, "C:\\Users\\FCD\\Desktop\\mobilesms.txt");
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+		System.out.println(Tool.ifInclude("dsadabcsadsa","abc"));
 
 	}
 	
@@ -107,5 +182,5 @@ public class Main {
 	}
 	
 	
-
+	;
 }

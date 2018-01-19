@@ -478,5 +478,22 @@ public class Tool {
 	public static final String DESKTOP = FileSystemView.getFileSystemView().getHomeDirectory().getPath();
 	//程序运行路径，jmeter调用时为jmeter安装路径/bin
 	public static final String JMETER_HOME = System.getProperty("user.dir");
+	
+	/**
+	 * 判断一个字符串中，是否包含另一个字符串。
+	 * @param Source 源字符串 例aabca
+	 * @param str 判断字符串 例abc
+	 * @return true包含 false不包含
+	 */
+	public static boolean ifInclude(String Source, String str) {
+		boolean ifInclude = false;
+		if (Source.indexOf(str)!=-1) {
+			ifInclude = true;			
+		}else {
+			ifInclude = false;
+		}
+		return ifInclude;
+	}
+	
 
 }
