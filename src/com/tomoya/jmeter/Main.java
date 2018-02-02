@@ -117,13 +117,6 @@ public class Main {
 		
 		}
 		
-		System.out.println(mobile);
-		try {
-			Tool.writeFile(mobile, "C:\\Users\\FCD\\Desktop\\mobile4.txt");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
 
 
@@ -163,7 +156,8 @@ public class Main {
 //			e.printStackTrace();
 //		}
 		
-		System.out.println(Tool.ifInclude("dsadabcsadsa","abc"));
+	
+
 
 	}
 	
@@ -182,5 +176,7 @@ public class Main {
 	}
 	
 	
-	;
+	
+	
+	
 }

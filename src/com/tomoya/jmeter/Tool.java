@@ -4,6 +4,8 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.*;
@@ -12,6 +14,10 @@ import java.util.regex.Pattern;
 
 import javax.swing.filechooser.FileSystemView;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
+import java.text.Format;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 /**
@@ -52,9 +58,12 @@ public class Tool {
 	 * 
 	 * @param str
 	 *            字符串
+	 * @param isCap
+	 *            是否大小写
+	 * 
 	 * @return MD5值
 	 */
-	public static String getMD5(String str) {
+	public static String getMD5(String str, boolean isCap) {
 		MessageDigest md5 = null;
 		try {
 			md5 = MessageDigest.getInstance("MD5");
@@ -79,7 +88,11 @@ public class Tool {
 			buf.append(Integer.toHexString(i));
 		}
 
-		return buf.toString();
+		if (isCap == true) {
+			return md5.toString().toUpperCase();
+		} else {
+			return buf.toString();
+		}
 	}
 
 	/**
@@ -89,8 +102,8 @@ public class Tool {
 	 *            字符串
 	 * @return MD5值
 	 */
-	public static String getMD5Cap(String str) {
-		return getMD5(str).toUpperCase();
+	public static String getMD5(String str) {
+		return getMD5(str, true);
 	}
 
 	/**
@@ -473,27 +486,116 @@ public class Tool {
 		Matcher m = p.matcher(str);
 		return m.find();
 	}
-	
-	//桌面路径
+
+	// 桌面路径
 	public static final String DESKTOP = FileSystemView.getFileSystemView().getHomeDirectory().getPath();
-	//程序运行路径，jmeter调用时为jmeter安装路径/bin
+	// 程序运行路径，jmeter调用时为jmeter安装路径/bin
 	public static final String JMETER_HOME = System.getProperty("user.dir");
-	
+
 	/**
 	 * 判断一个字符串中，是否包含另一个字符串。
-	 * @param Source 源字符串 例aabca
-	 * @param str 判断字符串 例abc
+	 * 
+	 * @param Source
+	 *            源字符串 例aabca
+	 * @param str
+	 *            判断字符串 例abc
 	 * @return true包含 false不包含
 	 */
 	public static boolean ifInclude(String Source, String str) {
 		boolean ifInclude = false;
-		if (Source.indexOf(str)!=-1) {
-			ifInclude = true;			
-		}else {
+		if (Source.indexOf(str) != -1) {
+			ifInclude = true;
+		} else {
 			ifInclude = false;
 		}
 		return ifInclude;
 	}
-	
+
+	/**
+	 * 日期天数计算
+	 * 
+	 * @param initDate
+	 *            初始日期
+	 * @param number
+	 *            加多少天
+	 * @return 最终日期
+	 */
+	public static String dateJiSuan(String initDate, int number) {
+		return dateJiSuan(initDate, "yyyy-MM-dd HH:mm:ss", number);
+	}
+
+	/**
+	 * 日期天数计算
+	 * 
+	 * @param initDate
+	 *            初始日期
+	 * @param dateFormat
+	 *            日期格式
+	 * @param number
+	 *            加多少天
+	 * @return 最终日期
+	 */
+	public static String dateJiSuan(String initDate, String dateFormat, int number) {
+		// String initDate = "2017-12-01 00:00:01";
+		String finalDate = null;
+		// 页面传递到后台的时间 为String类型
+		SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+		Date tmpDate = null;
+		try {
+			tmpDate = sdf.parse(initDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		// 要实现日期+1 需要String转成Date类型
+		Format f = new SimpleDateFormat(dateFormat);
+		Calendar c = Calendar.getInstance();
+		c.setTime(tmpDate);
+		// 利用Calendar 实现 Date日期+1天
+		c.add(Calendar.DAY_OF_MONTH, number);
+		tmpDate = c.getTime();
+		SimpleDateFormat sdf1 = new SimpleDateFormat(dateFormat);
+		// 将日期转成String类型 方便进入数据库比较
+		finalDate = sdf1.format(tmpDate);
+		return finalDate;
+	}
+
+	/**
+	 * 生成文件的16位MD5密文（大写）
+	 * 
+	 * @param dirPath
+	 *            文件路径
+	 * @return 16位MD5密文
+	 */
+	public static String getFileMD5(String dirPath) {
+		return getFileMD5(dirPath, true);
+	}
+
+	/**
+	 * 生成文件的16位MD5密文
+	 * 
+	 * @param dirPath
+	 *            文件路径
+	 * @param cap
+	 *            是否大写
+	 * @return 16位MD5密文
+	 */
+	public static String getFileMD5(String dirPath, boolean cap) {
+		String md5 = null;
+		try {
+			md5 = DigestUtils.md5Hex(new FileInputStream(dirPath));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (cap == true) {
+			return md5.toUpperCase();
+		} else {
+			return md5;
+		}
+
+	}
 
 }

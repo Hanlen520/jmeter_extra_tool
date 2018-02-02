@@ -67,7 +67,7 @@ public final class Base64 {
 	 *            Array containing binaryData
 	 * @return Encoded Base64 array
 	 */
-	public static String encode(byte[] binaryData) {
+	public static String encodeBase64(byte[] binaryData) {
 
 		if (binaryData == null) {
 			return null;
@@ -159,7 +159,7 @@ public final class Base64 {
 	 *            string containing Base64 data
 	 * @return Array containind decoded data.
 	 */
-	public static byte[] decode(String encoded) {
+	public static byte[] decodeBase64(String encoded) {
 
 		if (encoded == null) {
 			return null;

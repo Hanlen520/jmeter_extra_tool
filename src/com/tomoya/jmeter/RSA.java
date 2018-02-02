@@ -39,7 +39,7 @@ public class RSA {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		String cipher = Base64.encode(cipherData);
+		String cipher = Base64.encodeBase64(cipherData);
 		return cipher;
 	}
 
@@ -59,7 +59,7 @@ public class RSA {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		String cipher = Base64.encode(cipherData);
+		String cipher = Base64.encodeBase64(cipherData);
 		return cipher;
 	}
 
@@ -74,7 +74,7 @@ public class RSA {
 		byte[] res = null;
 		try {
 			res = decrypt(loadPublicKeyByStr(loadPublicKeyByFile(filepath)),
-					Base64.decode(cipher));
+					Base64.decodeBase64(cipher));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -93,7 +93,7 @@ public class RSA {
 		byte[] res = null;
 		try {
 			res = decrypt(loadPrivateKeyByStr(loadPrivateKeyByFile(filepath)),
-					Base64.decode(cipher));
+					Base64.decodeBase64(cipher));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -138,7 +138,7 @@ public class RSA {
 	private static RSAPublicKey loadPublicKeyByStr(String publicKeyStr)
 			throws Exception {
 		try {
-			byte[] buffer = Base64.decode(publicKeyStr);
+			byte[] buffer = Base64.decodeBase64(publicKeyStr);
 			KeyFactory keyFactory = KeyFactory.getInstance("RSA");
 			X509EncodedKeySpec keySpec = new X509EncodedKeySpec(buffer);
 			return (RSAPublicKey) keyFactory.generatePublic(keySpec);
@@ -188,7 +188,7 @@ public class RSA {
 	private static RSAPrivateKey loadPrivateKeyByStr(String privateKeyStr)
 			throws Exception {
 		try {
-			byte[] buffer = Base64.decode(privateKeyStr);
+			byte[] buffer = Base64.decodeBase64(privateKeyStr);
 			PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(buffer);
 			KeyFactory keyFactory = KeyFactory.getInstance("RSA");
 			return (RSAPrivateKey) keyFactory.generatePrivate(keySpec);
