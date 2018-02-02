@@ -89,7 +89,7 @@ public class Tool {
 		}
 
 		if (isCap == true) {
-			return md5.toString().toUpperCase();
+			return buf.toString().toUpperCase();
 		} else {
 			return buf.toString();
 		}

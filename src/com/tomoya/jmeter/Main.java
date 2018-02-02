@@ -132,7 +132,7 @@ public class Main {
 //		Redis re2 = new Redis("192.168.1.117", 6379);
 //		System.out.println(re2.getRedis("merchant:00101"));
 
-		
+		System.out.print(Tool.getMD5("asdsadsaf", true));
 //		//获取验证码
 //		
 //		long mobileIndex2 = 13800130001L;
