@@ -95,18 +95,17 @@
 ### Tool类
 > 将编译出来的jar包放入Jmeter的/lib/ext路径下，重新启动Jmeter。在BeanShell类型组件中 **import com.tomoya.jmeter.*;** 就可以调用Tool类和RSA类中的方法了。
 
-![jmeter_extra_tool](http://img.blog.csdn.net/20171023092151650?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdG9tb3lhX2NoZW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![image](https://github.com/tomoyachen/jmeter_extra_tool/blob/master/screenshots/screenshot1.png)
 
 ### Excel类
 > 将编译出来的jar包和下载的Apache POI 所有jar包放入Jmeter的/lib/ext路径下，重新启动Jmeter。在BeanShell类型组件中 **import com.tomoya.jmeter.*;** 就可以调用Excel类中的方法了。
 
-![这里写图片描述](http://img.blog.csdn.net/20171026123922665?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdG9tb3lhX2NoZW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![image](https://github.com/tomoyachen/jmeter_extra_tool/blob/master/screenshots/screenshot2.png)
 
 ### 自定义函数
 > 将编译出来的jar包放入Jmeter的/lib/ext路径下，重新启动Jmeter。你将会在你的**函数助手对话框**中找到它们。本人定义的是以一个下划线**"_"**为前缀。
 
-![jmeter_extra_tool](http://img.blog.csdn.net/20171023092219747?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdG9tb3lhX2NoZW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-
+![image](https://github.com/tomoyachen/jmeter_extra_tool/blob/master/screenshots/screenshot3.png)
 
 ## 代码块
 ### 自定义函数示例
@@ -217,7 +216,7 @@ public class MD5 extends AbstractFunction {
 
 
 ## 开源地址
-- coding.net：[https://coding.net/u/tomoya_chen/p/jmeter_extra_tool/git](https://coding.net/u/tomoya_chen/p/jmeter_extra_tool/git "jmeter_extra_tool")
+- github：[https://github.com/tomoyachen/jmeter_extra_tool](https://github.com/tomoyachen/jmeter_extra_tool "jmeter_extra_tool")
 
 
 ## 反馈与建议
